@@ -1,16 +1,14 @@
 <?php
 
 namespace app\models;
-
 use core\Model;
+
 
 class Films extends Model{
 
     const TABLENAME='films';
 
     public $persons;
-
-
 
     public function getRegisseurId(){
         return $this->getDataField('id_regisseur');

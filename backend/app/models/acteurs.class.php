@@ -6,8 +6,6 @@ use core\Model;
 use core\Database;
 use PDO;
 
-
-
 class Acteurs extends Model{
 
     protected $filmId;
@@ -35,11 +33,7 @@ class Acteurs extends Model{
         $stmt->execute();
         $records=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $objects=[];
-        // foreach($records as $record){
-        //     $object=new self();
-        //     $object->setData($record);
-        //     $objects[]=$object;
-        // }
+
         return $records;
     }
 

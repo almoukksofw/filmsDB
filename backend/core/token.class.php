@@ -7,22 +7,15 @@ use PDO;
 
 class Token extends Model {
     
-    /** de bijbehorende database-tabel */
     const TABLENAME = 'tokens';
     
-    /** relatie-properties */
-    private $user;              // token heeft 1-op-1-relatie met user
+    private $user;            
     
     public function __construct(){
-        /**
-         * Roep de parent-constructor aan met ��n optionele parameter:
-         * primary-key-definitie als een array met twee elementen [naam, pdo-paramtype]
-         *   default is ['id', PDO::PARAM_INT]
-         */
+  
         parent::__construct(['value', PDO::PARAM_STR]);
     }
     
-    /** setters */
     
     public function setValue($value)
     {
@@ -34,29 +27,23 @@ class Token extends Model {
         $this->setDataField('id_user', $value);
     }
 
-    /** 
-     * relaties (relaties zijn lazy loaded)
-     */    
+   
     public function getUser()
     {
         if (!isset($this->user))
         {        
             $this->user = new User();
-
             $this->user->setId($this->id_user);
-
             $this->user->load($success);
-            
         }
         return $this->user;
     }
 
-    /** niet-generieke database-acties */
     
     private function save()
     {
         $query =
-        '
+        's
             INSERT INTO tokens (value, id_user)
             VALUES (:value, :id_user)
         ';

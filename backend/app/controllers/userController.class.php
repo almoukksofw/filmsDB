@@ -2,7 +2,6 @@
 
 namespace app\controllers;
 
-// require '../include/init.php';
 
 
 use app\controllers\Controller;
@@ -14,11 +13,11 @@ class UserController extends Controller{
 
     public function registerForm(){
         $this->session->addToSession('referer', $_SERVER['HTTP_REFERER']);
-        // echo $_SERVER['HTTP_REFERER '];
 
         $this->view->setTemplate('user_register');
         $this->view->add('_message', "bdkfjdskfj");
         $this->view->render();
+        header("Location: https://www.google.nl");
     }
     
     
@@ -31,7 +30,7 @@ class UserController extends Controller{
         // print_r($_POST
         // $user->register($succes);
         $user->register();
-        if($user->isValid()){ // if there are no errors in the user class
+        if($user->isValid()){ 
             $this->session->addToSession('msg','registering is goodlucked');
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         }else{
@@ -149,19 +148,7 @@ class UserController extends Controller{
         $this->json->render();    
     }
     
-    /**
-     * AUTHENTICATIE-REQUESTS
-     * 
-     * - formulier voor api (simulatie, in de praktijk niet hier)
-     * - actie voor api
-     * 
-     * formulier en actie voor web ontbreken, die zijn niet nodig als requests
-     */
 
-    /**
-     * Authenticatieformulier.
-     * - verstuurt token
-     */
     public function authenticate_form_api(){
         $this->view->setTemplate('user_authenticate');
         $this->view->render();
@@ -170,7 +157,7 @@ class UserController extends Controller{
     public function authenticate_api(){
         if (!$this->token->isValid()){
             $this->json->add('success', false);
-            $this->json->add('errors', $this->token->getErrors());  // onbelangrijk
+            $this->json->add('errors', $this->token->getErrors()); 
         }else{
             $this->json->add('success', true);
             $this->json->add('user_name', $this->token->getUser()->name);

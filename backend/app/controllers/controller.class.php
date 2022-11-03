@@ -26,10 +26,6 @@ abstract class Controller{
         
         $this->view = new View();
         $this->view->add('_message', $this->session->getOnce('message'));
-        
-        // if ($this->token->isValid()) {
-        //     $this->view->add('_authuser', $this->token->getUser());
-        // }
     }
 
     /**

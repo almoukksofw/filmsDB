@@ -2,7 +2,6 @@
 
 namespace app\controllers;
 use app\controllers\Controller;
-
 use app\models\Films;
 use core\Router;
 
@@ -10,8 +9,7 @@ require 'controller.class.php';
 
 class filmController extends Controller{
 
-
-    public function films_index(){ // returns only jso
+    public function films_index(){
         $data=[];
         $films=Films::index();
 
@@ -23,7 +21,8 @@ class filmController extends Controller{
     }
 
 
-    public function FilmShow(){ //geein
+
+    public function FilmShow(){
 
         $film = new Films();
         $UriString=explode('/' , $_SERVER['REQUEST_URI']); 
@@ -32,7 +31,6 @@ class filmController extends Controller{
         $film->setId($id);
         $film->load($success);
         if (!$success){
-            // $this->view->setTemplate('404');
         }else{
             $filmData=$film->getData();
             $filmData["acteurs"]=$film->getActeurs();
@@ -41,9 +39,6 @@ class filmController extends Controller{
         }
         $this->json->render();
     }
-
-
-
-
+    
 
 }

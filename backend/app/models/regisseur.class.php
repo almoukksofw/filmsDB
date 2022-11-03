@@ -3,12 +3,10 @@
 namespace app\models;
 
 use core\Model;
-use core\Database;
+use core\Database; 
 use PDO;
 
-
 class Regisseur extends Model{
-
 
 
     public function __construct(){
@@ -22,7 +20,7 @@ class Regisseur extends Model{
     
     
     public function setId($value){
-        $this->data['id']=$value; // it is about the data of the reg
+        $this->data['id']=$value;
     }
 
     

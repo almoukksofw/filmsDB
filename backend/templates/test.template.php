@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html" />
-	<meta name="author" content="Jeroen van den Brink" />
+	<meta name="author" content="" />
 
 	<title>Test</title>
 </head>
