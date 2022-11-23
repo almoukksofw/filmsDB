@@ -13,7 +13,7 @@ class Database{
 
     private function __construct(){
 		$dsn = 'mysql:host=localhost; dbname=films_db';
-		$this->pdo = new PDO($dsn, 'noorderpoort', 'toets');
+		$this->pdo = new PDO($dsn, 'fpoort', 'racen');
     }
 
 

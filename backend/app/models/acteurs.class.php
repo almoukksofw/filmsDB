@@ -21,8 +21,7 @@ class Acteurs extends Model{
      
      
      
-     public function indexByFilm ($film_id){
-         // select from persons based on the filmId
+     public  static function indexByFilm($film_id){
         $query='SELECT persons.* FROM films_acteurs 
         JOIN persons ON persons.id=films_acteurs.id_acteur
         WHERE films_acteurs.id_film= :film_id

@@ -25,7 +25,7 @@ class Regisseur extends Model{
 
     
 
-    public function getFromDB($id){
+    public static function getFromDB($id){
         $query='SELECT * FROM persons WHERE :id=id';
         $pdo=Database::getInstance()->getPdo();
 

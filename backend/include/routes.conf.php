@@ -20,7 +20,7 @@ $this->allowed_routes =
     ),
 
     new Route(
-        'user/registerForm',
+        'registerForm',
         'GET',
         'userController',
         'registerForm'
@@ -32,9 +32,15 @@ $this->allowed_routes =
         'userController',
         'register'
     ),
+    new Route(
+        'test',
+        'POST',
+        'userController',
+        'test'
+    ),
 
     new Route(
-        'user/logInForm',
+        'logInForm',
         'GET',
         'userController',
         'login_form'

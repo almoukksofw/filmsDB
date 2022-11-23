@@ -29,6 +29,7 @@
                 <li><a class="dropdown-item" href="#">Lifestyle</a></li>
                 <li><a class="dropdown-item" href="#">Lifestyle</a></li>
               </ul>
+              
             </li>
           </ul>
           <input
@@ -38,19 +39,41 @@
              style="margin-right: 2392px; display: flex;"
             aria-label="Search"
           />
-                <button class="btn btn-dark  my-2 my-sm-0 " type="submit">Submit</button>
+                <button v-on:click="registertoapi" type="button" >Register</button>
 
-          <router-link to="/user/registerForm"
-            ><i class="fas fa-user fa-2x nav-item"></i
-          ></router-link>
+          <!-- <router-link to="/Register"> -->
+          <div v-on:click="loginapi" type="button"> <i  class="fas fa-user fa-2x nav-item"></i></div>
+          <!-- </router-link> -->
         </form>
+        
       </div>
+      
     </div>
   </nav>
+
+  
 </template>
 
 <script>
-export default {};
+
+// import axios from 'axios';
+
+
+export default {
+
+    methods: {
+
+      registertoapi(){
+        window.location.href = 'http://localhost/project_jaar2/blok6/project-film-db-blok-6-meko106/Meko_project_blok6/backend/public/registerForm';
+      },
+      loginapi(){
+        window.location.href = 'http://localhost/project_jaar2/blok6/project-film-db-blok-6-meko106/Meko_project_blok6/backend/public/logInForm';
+      }
+
+    },
+
+
+}
 </script>
 <style scoped>
 
