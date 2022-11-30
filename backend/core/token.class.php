@@ -72,7 +72,6 @@ class Token extends Model {
         }
     }
     
-    /** acties bij REGISTRATIE en LOGIN */
     
     public function generate(){
         $this->setValue(uniqid());
@@ -84,16 +83,7 @@ class Token extends Model {
         $this->generate();
     }
     
-    /** 
-     * AUTHENTICATIE
-     * 
-     * API-authenticatie gaat bij voorkeur via een COOKIE, maar omdat dat lastig is in een 
-     * situatie waarbij je het token moet versturen vanaf een SPA (zoals Vue) in een ander 
-     * domein dan de API-backend, is er hier gekozen voor POST.
-     * 
-     * Web-authenticatie gaat via de sessie.
-     */
-    
+
     public function authenticate()
     {
         $session = Session::getInstance();
